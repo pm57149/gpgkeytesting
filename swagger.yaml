@@ -1,0 +1,41 @@
+definitions:
+  controller.userResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/model.User'
+        type: array
+    type: object
+  model.User:
+    properties:
+      email:
+        type: string
+      full_name:
+        type: string
+      is_active:
+        type: boolean
+      username:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: arowpk@gmail.com
+    name: Pawan Mehta
+    url: https://github.com/pawanpk87
+  description: Sample description
+  title: Documenting API
+  version: "1"
+paths:
+  /api/v1/users:
+    get:
+      description: return list of all users from the database
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.userResponse'
+      summary: return list of all users
+      tags:
+      - User
+swagger: "2.0"
